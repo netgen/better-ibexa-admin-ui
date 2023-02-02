@@ -1,0 +1,27 @@
+{
+    "name": "netgen/better-ibexa-admin-ui",
+    "description": "Better Ibexa Admin UI implements an enhanced administration UI for Ibexa DXP",
+    "type": "ezplatform-bundle",
+    "homepage": "https://github.com/netgen/better-ibexa-admin-ui",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Netgen",
+            "homepage": "https://netgen.io"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.1",
+        "ibexa/admin-ui": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Netgen\\Bundle\\BetterIbexaAdminUIBundle\\": "bundle"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
