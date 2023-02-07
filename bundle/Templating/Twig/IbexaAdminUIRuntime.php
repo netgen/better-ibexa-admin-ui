@@ -14,9 +14,6 @@ class IbexaAdminUIRuntime implements RuntimeExtensionInterface
 {
     private FilterService $filterService;
 
-    /**
-     * @param \Netgen\IbexaSiteApi\API\FilterService $filterService
-     */
     public function __construct(FilterService $filterService)
     {
         $this->filterService = $filterService;
