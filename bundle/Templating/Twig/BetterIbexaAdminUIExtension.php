@@ -7,12 +7,12 @@ namespace Netgen\Bundle\BetterIbexaAdminUIBundle\Templating\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class IbexaAdminUIExtension extends AbstractExtension
+final class BetterIbexaAdminUIExtension extends AbstractExtension
 {
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('ng_count_content_by_content_type', [IbexaAdminUIRuntime::class, 'countContentByContentType']),
+            new TwigFunction('ng_count_content_by_content_type', [BetterIbexaAdminUIRuntime::class, 'countContentByContentType']),
         ];
     }
 }

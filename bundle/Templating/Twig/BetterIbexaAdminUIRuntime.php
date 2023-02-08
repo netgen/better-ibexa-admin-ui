@@ -9,7 +9,7 @@ use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use Netgen\IbexaSiteApi\API\FilterService;
 use Twig\Extension\RuntimeExtensionInterface;
 
-class IbexaAdminUIRuntime implements RuntimeExtensionInterface
+final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
 {
     private FilterService $filterService;
 
