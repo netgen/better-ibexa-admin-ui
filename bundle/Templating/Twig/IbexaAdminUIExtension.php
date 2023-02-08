@@ -12,7 +12,7 @@ class IbexaAdminUIExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('count_by_content_type', [IbexaAdminUIRuntime::class, 'countByContentType']),
+            new TwigFunction('ng_count_content_by_content_type', [IbexaAdminUIRuntime::class, 'countContentByContentType']),
         ];
     }
 }

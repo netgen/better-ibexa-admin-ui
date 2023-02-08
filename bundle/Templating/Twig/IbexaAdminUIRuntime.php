@@ -18,7 +18,7 @@ class IbexaAdminUIRuntime implements RuntimeExtensionInterface
         $this->filterService = $filterService;
     }
 
-    public function countByContentType(string $contentTypeIdentifier): int
+    public function countContentByContentType(string $contentTypeIdentifier): int
     {
         $query = new Query();
         $query->filter = new Criterion\ContentTypeIdentifier($contentTypeIdentifier);
