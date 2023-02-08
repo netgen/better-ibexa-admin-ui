@@ -5,7 +5,7 @@
 
 {% set url = path('ibexa.search', { 'search[content_types][]': content_type.identifier }) %}
 {% set object_count %}
-    <a href="{{ url }}"> {{ ng_count_content_by_content_type(content_type.identifier)|default(0) }} </a>
+    <a href="{{ url }}"> {{ ng_count_content_by_content_type(content_type.identifier) }} </a>
 {% endset %}
 {% set global_properties_items = [
     {
