@@ -1,0 +1,90 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'user_settings' %}
+
+{% block title %}{{ 'list.title'|trans|desc('User Settings') }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'list.title'|trans|desc('User Settings') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'list.title'|trans|desc('User Settings'),
+    } %}
+{% endblock %}
+
+{% block body_class %}ibexa-user-settings-list-view{% endblock %}
+
+{% block content %}
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        tabs: [
+          { id: 'my-preferences', label: 'section.my_preferences'|trans|desc('My Preferences'), active: true },
+          { id: 'my-account-settings', label: 'section.my_account_settings'|trans|desc('My Account Settings') },
+        ]
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'my-preferences', active: true } %}
+                {% block content %}
+                    {% for settings_group in grouped_settings %}
+                        {% if settings_group.settings is not empty %}
+                            {% set headline_items %}
+                                <a
+                                    title="{{ 'list.action.edit'|trans|desc('Edit') }}"
+                                    href="{{ path('ibexa.user_settings.update', { 'identifier': settings_group.identifier }) }}"
+                                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                                >
+                                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                                    </svg>
+                                </a>
+                            {% endset %}
+                            {% set items = [] %}
+
+                            {% for user_setting in settings_group.settings %}
+                                {% set items = items|merge([{
+                                    label: user_setting.description,
+                                    content: value_definitions[user_setting.identifier].getDisplayValue(user_setting.value)
+                                }]) %}
+                            {% endfor %}
+
+                            {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                                headline: settings_group.name,
+                                headline_items: headline_items,
+                                items: items,
+                            } only %}
+                        {% endif %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'my-account-settings' } %}
+                {% block content %}
+                    {% set actions %}
+                        <a
+                            href="{{ path('ibexa.user_profile.change_password') }}"
+                            class="btn ibexa-btn ibexa-btn--ghost"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                            </svg>
+                            <span class="ibexa-btn__label">
+                                {{ 'my_account_settings.password.action.edit'|trans|desc('Change password') }}
+                            </span>
+                        </a>
+                    {% endset %}
+
+                    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+                        headline: 'my_account_settings.password.title'|trans|desc('Password'),
+                        actions,
+                    } %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}
