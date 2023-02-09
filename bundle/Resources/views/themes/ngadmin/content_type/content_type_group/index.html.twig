@@ -1,0 +1,29 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'content_type' %}
+
+{% block title %}{{ content_type_group.identifier }}{% endblock %}
+
+{% block body_class %}ibexa-content-type-group-list-view{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { url: path('ibexa.content_type_group.list'), value: 'content_type_group.breadcrumb.list'|trans|desc('Content Types') },
+        { value: 'content_type_group.breadcrumb.view'|trans({ '%identifier%': content_type_group.identifier })|desc('%identifier%') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'content_type_group.view.view.title'|trans({ '%identifier%': content_type_group.identifier })|desc('%identifier%'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ render(controller('Ibexa\\Bundle\\AdminUi\\Controller\\ContentTypeController::listAction', {
+        contentTypeGroupId: content_type_group.id,
+        page: page,
+        routeName: route_name
+    })) }}
+{% endblock %}
