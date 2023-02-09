@@ -1,0 +1,43 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'dashboard' %}
+
+{% block title %}{{ 'my.dashboard'|trans|desc('My dashboard') }}{% endblock %}
+
+{% block body_class %}ibexa-dashboard{% endblock %}
+
+{% block context_menu %}
+    <div class="ibexa-dashboard__create">
+        <button
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--cotf-create"
+                data-udw-config="{{ ibexa_udw_config('create', {'type': 'content_create'}) }}"
+                {% if not can_create_content %}disabled{% endif %}
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+            </svg>
+            <span>{{ 'dashboard.create'|trans|desc('Create content') }}</span>
+        </button>
+    </div>
+{% endblock %}
+
+{% block header %}
+    <h1>{{ 'my.dashboard'|trans|desc('My dashboard') }}</h1>
+{% endblock %}
+
+{% block content %}
+    {{ ibexa_render_component_group('dashboard-blocks') }}
+
+    {{ form_start(form_edit, {
+        'action': path('ibexa.content.edit'),
+        'attr': { 'class': 'ibexa-edit-content-form'}
+    }) }}
+    {{ form_widget(form_edit.language, {'attr': {'hidden': 'hidden', 'class': 'language-input'}}) }}
+    {{ form_end(form_edit) }}
+
+    {% include '@ibexadesign/content/modal/version_conflict.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-dashboard-js', null, 'ibexa') }}
+{% endblock %}
