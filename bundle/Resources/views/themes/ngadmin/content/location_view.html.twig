@@ -2,6 +2,8 @@
 
 {% extends "@ibexadesign/ui/layout.html.twig" %}
 
+{% block title %}{{ content.name }}{% endblock %}
+
 {% trans_default_domain 'locationview' %}
 {% form_theme form_location_copy '@ibexadesign/ui/form/flat_widgets.html.twig' %}
 {% form_theme form_location_move '@ibexadesign/ui/form/flat_widgets.html.twig' %}
