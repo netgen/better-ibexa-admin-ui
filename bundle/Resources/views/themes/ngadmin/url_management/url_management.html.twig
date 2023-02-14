@@ -1,28 +1,3 @@
-{% extends "@ibexadesign/ui/layout.html.twig" %}
-
-{% trans_default_domain 'ezplatform_url_management' %}
+{% extends '@IbexaAdminUi/themes/admin/url_management/url_management.html.twig' %}
 
 {% block title %}{{ 'url_management.view.list.title'|trans|desc('URL Management') }}{% endblock %}
-
-{% block body_class %}ibexa-url-management{% endblock %}
-
-{% block breadcrumbs %}
-    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
-        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
-        { value: 'url_management.breadcrumb.list'|trans|desc('URL Management') },
-    ]} %}
-{% endblock %}
-
-{% block header %}
-    {% include '@ibexadesign/ui/page_title.html.twig' with {
-        title: 'url_management.view.list.title'|trans|desc('URL Management'),
-    } %}
-{% endblock %}
-
-{% block content %}
-    {{ ibexa_render_component_group('link-manager-block') }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ encore_entry_script_tags('ibexa-admin-ui-url-management-js', null, 'ibexa') }}
-{% endblock %}
