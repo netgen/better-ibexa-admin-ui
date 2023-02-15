@@ -88,9 +88,9 @@
                         { content: field_definition.names[current_language] },
                         { content: field_definition.identifier },
                         { content: field_definition.fieldTypeIdentifier },
-                        { content: field_definition.isRequired ? "content_type.field_definition.is_required"|trans|desc("Required") : "-" },
-                        { content: field_definition.isTranslatable ? "content_type.field_definition.is_translatable"|trans|desc("Translatable") : "-" },
-                        { content: field_definition.isSearchable ? "content_type.field_definition.is_searchable"|trans|desc("Searchable") : "-" },
+                        { content: field_definition.isRequired ? "content_type.field_definition.required"|trans|desc("Required") : "-" },
+                        { content: field_definition.isTranslatable ? "content_type.field_definition.translatable"|trans|desc("Translatable") : "-" },
+                        { content: field_definition.isSearchable ? "content_type.field_definition.searchable"|trans|desc("Searchable") : "-" },
                         { content: field_definition.isInfoCollector ? "content_type.field_definition.collects_information"|trans|desc("Collects information") : "-" },
                     ]
                 }]) %}

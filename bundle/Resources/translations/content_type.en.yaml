@@ -1,6 +1,3 @@
-content_type.field_definition.is_required: "Required"
-content_type.field_definition.is_translatable: "Translatable"
-content_type.field_definition.is_searchable: "Searchable"
 content_type.field_definition.collects_information: "Collects information"
 content_type.field_definition.name: "Name"
 content_type.field_definition.identifier: "Identifier"
