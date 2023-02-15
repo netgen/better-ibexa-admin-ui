@@ -88,10 +88,10 @@
                         { content: field_definition.names[current_language] },
                         { content: field_definition.identifier },
                         { content: field_definition.fieldTypeIdentifier },
-                        { content: field_definition.isRequired ? "content_type.field_definition.is_required"|trans|desc("Is required") : "content_type.field_definition.is_not_required"|trans|desc("Is not required") },
-                        { content: field_definition.isTranslatable ? "content_type.field_definition.is_translatable"|trans|desc("Is translatable") : "content_type.field_definition.is_not_translatable"|trans|desc("Is not translatable") },
-                        { content: field_definition.isSearchable ? "content_type.field_definition.is_searchable"|trans|desc("Is searchable") : "content_type.field_definition.is_not_searchable"|trans|desc("Is not searchable") },
-                        { content: field_definition.isInfoCollector ? "content_type.field_definition.collects_information"|trans|desc("Collects information") : "content_type.field_definition.does_not_collect_information"|trans|desc("Does not collect information")},
+                        { content: field_definition.isRequired ? "content_type.field_definition.is_required"|trans|desc("Required") : "-" },
+                        { content: field_definition.isTranslatable ? "content_type.field_definition.is_translatable"|trans|desc("Translatable") : "-" },
+                        { content: field_definition.isSearchable ? "content_type.field_definition.is_searchable"|trans|desc("Searchable") : "-" },
+                        { content: field_definition.isInfoCollector ? "content_type.field_definition.collects_information"|trans|desc("Collects information") : "-" },
                     ]
                 }]) %}
             {% endfor %}
