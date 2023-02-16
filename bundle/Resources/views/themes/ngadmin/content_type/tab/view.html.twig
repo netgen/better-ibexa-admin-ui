@@ -97,7 +97,7 @@
             {% endfor %}
 
             {% include '@ibexadesign/ui/component/table/table.html.twig' with {
-                headline: group|capitalize,
+                headline: group|trans([], 'ezplatform_fields_groups'),
                 head_cols: [
                     { content: "content_type.field_definition.name"|trans|desc("Name"), class: 'ibexa-table__head-cell--field-definitions-head' },
                     { content: "content_type.field_definition.identifier"|trans|desc("Identifier"), class: 'ibexa-table__head-cell--field-definitions-head' },
