@@ -12,7 +12,10 @@ final class BetterIbexaAdminUIExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('ng_count_content_by_content_type', [BetterIbexaAdminUIRuntime::class, 'countContentByContentType']),
+            new TwigFunction(
+                'ng_count_content_by_content_type',
+                [BetterIbexaAdminUIRuntime::class, 'countContentByContentType'],
+            ),
         ];
     }
 }
