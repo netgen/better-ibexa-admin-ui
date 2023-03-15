@@ -24,6 +24,6 @@ final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
         $query->filter = new Criterion\ContentTypeIdentifier($contentTypeIdentifier);
         $query->limit = 0;
 
-        return $this->filterService->filterContent($query)->totalCount;
+        return $this->filterService->filterContent($query)->totalCount ?? 0;
     }
 }
