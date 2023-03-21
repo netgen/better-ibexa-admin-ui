@@ -1,0 +1,38 @@
+{# content \Ibexa\Contracts\Core\Repository\Values\Content\Content #}
+
+{% trans_default_domain 'locationview' %}
+
+{% include '@admin/content/tab/translations/tab.html.twig' %}
+
+<p>
+    {{ 'content.update_always_available.title'|trans }}
+</p>
+
+<div class="ibexa-content-translations__always-available-toggler">
+    <div class="ibexa-toggle ibexa-toggle--checkbox {{ not can_edit ? 'ibexa-toggle--is-disabled' }} {{ content.contentInfo.alwaysAvailable ? 'ibexa-toggle--is-checked' }}">
+        <label class="ibexa-toggle__switcher">
+            <span class="ibexa-toggle__indicator"></span>
+            <input
+                type="checkbox"
+                class="ibexa-toggle__input ibexa-content-translations__always-available-checkbox"
+                {{ content.contentInfo.alwaysAvailable ? 'checked' }}
+                type="checkbox"
+                name="updateVisibility"
+                {{ not can_edit ? 'disabled' }}
+                value="{{ location.id }}"
+            />
+        </label>
+        <span class="ibexa-toggle__label ibexa-toggle__label--on">
+            {{ 'toggle_widget.label.on'|trans }}
+        </span>
+        <span class="ibexa-toggle__label ibexa-toggle__label--off mr-2">
+            {{ 'toggle_widget.label.off'|trans }}
+        </span>
+    </div>
+</div>
+
+{{ form_start(form_always_available_update, { action: path('netgen.better_ibexa_admin_ui.content.update_always_available') }) }}
+    {{ form_row(form_always_available_update.content_info) }}
+    {{ form_row(form_always_available_update.always_available, { label_attr: { hidden: true } }) }}
+    {{ form_row(form_always_available_update.set) }}
+{{ form_end(form_always_available_update) }}
