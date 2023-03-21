@@ -1,0 +1,3 @@
+content.update_always_available.title: "Make available in the main language when missing translations"
+content.update_always_available.success.available: "Content '%name%' marked as always available."
+content.update_always_available.success.not_available: "Content '%name%' unmarked as always available."

@@ -22,5 +22,10 @@
         "branch-alias": {
             "dev-master": "1.x-dev"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
     }
 }
