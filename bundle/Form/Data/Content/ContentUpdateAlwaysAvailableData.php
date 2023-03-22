@@ -8,8 +8,8 @@ use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
 
 class ContentUpdateAlwaysAvailableData
 {
-    private ?ContentInfo $contentInfo;
-    private ?bool $alwaysAvailable;
+    private ?ContentInfo $contentInfo = null;
+    private ?bool $alwaysAvailable = null;
 
     public function __construct(?ContentInfo $contentInfo = null)
     {
