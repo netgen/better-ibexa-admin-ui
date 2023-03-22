@@ -54,7 +54,7 @@ final class TranslationsTab extends AbstractEventDispatchingTab implements Order
         $content = $contextParameters['content'];
 
         $alwaysAvailableUpdateForm = $this->localFormFactory->createContentAlwaysAvailableUpdateForm(
-            $content->contentInfo,
+            $content->contentInfo->alwaysAvailable,
         );
         $canEdit = $this->permissionResolver->canUser(
             'content',
