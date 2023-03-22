@@ -25,7 +25,6 @@ Next, import the routes into your project:
 ```yaml
 netgen_better_ibexa_admin_ui:
     resource: '@NetgenBetterIbexaAdminUIBundle/Resources/config/routing.yaml'
-
 ```
 
 Licensed under [GPLv2](LICENSE)
