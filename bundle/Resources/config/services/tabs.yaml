@@ -1,13 +1,11 @@
 services:
     Netgen\Bundle\BetterIbexaAdminUIBundle\Tab\LocationView\TranslationsTab:
         decorates: Ibexa\AdminUi\Tab\LocationView\TranslationsTab
+        decoration_inner_name: TranslationsTab.inner
         arguments:
-            - '@twig'
-            - '@translator'
-            - '@Ibexa\AdminUi\UI\Dataset\DatasetFactory'
-            - '@Ibexa\Bundle\Core\Routing\UrlAliasRouter'
-            - '@event_dispatcher'
-            - '@form.factory'
-            - '@ibexa.api.service.language'
+            - '@TranslationsTab.inner'
             - '@Ibexa\Core\Repository\Permission\PermissionResolver'
             - '@Netgen\Bundle\BetterIbexaAdminUIBundle\Form\FormFactory'
+            - '@twig'
+            - '@translator'
+            - '@event_dispatcher'
