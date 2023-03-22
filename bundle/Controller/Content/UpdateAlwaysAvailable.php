@@ -21,7 +21,7 @@ final class UpdateAlwaysAvailable extends Controller
         private readonly TranslatorInterface $translator,
         private readonly ContentService $contentService,
         private readonly FormFactory $formFactory,
-        private readonly TranslationHelper $translationHelper
+        private readonly TranslationHelper $translationHelper,
     ) {
     }
 
@@ -39,7 +39,7 @@ final class UpdateAlwaysAvailable extends Controller
 
             if ($contentInfo === null || $alwaysAvailable === null) {
                 throw new BadRequestHttpException(
-                    'Could not find required form data'
+                    'Could not find required form data',
                 );
             }
 
