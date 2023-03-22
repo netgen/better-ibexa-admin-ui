@@ -1,5 +1,4 @@
 netgen.better_ibexa_admin_ui.content.update_always_available:
     path: /content/update-always-available
     methods: ['POST']
-    defaults:
-        _controller: 'Netgen\Bundle\BetterIbexaAdminUIBundle\Controller\Content\UpdateAlwaysAvailable'
+    controller: 'Netgen\Bundle\BetterIbexaAdminUIBundle\Controller\Content\UpdateAlwaysAvailable'
