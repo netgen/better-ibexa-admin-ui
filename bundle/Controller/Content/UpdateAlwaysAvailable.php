@@ -8,11 +8,11 @@ use Ibexa\Contracts\AdminUi\Controller\Controller;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
 use Ibexa\Core\Helper\TranslationHelper;
-use LogicException;
 use Netgen\Bundle\BetterIbexaAdminUIBundle\Form\FormFactory;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class UpdateAlwaysAvailable extends Controller
@@ -38,7 +38,7 @@ final class UpdateAlwaysAvailable extends Controller
             $alwaysAvailable = $data->getAlwaysAvailable();
 
             if ($contentInfo === null || $alwaysAvailable === null) {
-                throw new LogicException(
+                throw new BadRequestHttpException(
                     'Could not find required form data'
                 );
             }
