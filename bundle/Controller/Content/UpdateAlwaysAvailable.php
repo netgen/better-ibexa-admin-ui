@@ -25,19 +25,19 @@ final class UpdateAlwaysAvailable extends Controller
     ) {
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(int $id, Request $request): Response
     {
         $form = $this->formFactory->createContentAlwaysAvailableUpdateForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $contentInfo = $this->contentService->loadContentInfo($id);
+
             /** @var \Netgen\Bundle\BetterIbexaAdminUIBundle\Form\Data\Content\ContentUpdateAlwaysAvailableData $data */
             $data = $form->getData();
-
-            $contentInfo = $data->getContentInfo();
             $alwaysAvailable = $data->getAlwaysAvailable();
 
-            if ($contentInfo === null || $alwaysAvailable === null) {
+            if ($alwaysAvailable === null) {
                 throw new BadRequestHttpException(
                     'Could not find required form data',
                 );

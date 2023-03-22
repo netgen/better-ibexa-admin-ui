@@ -31,8 +31,6 @@
     </div>
 </div>
 
-{{ form_start(form_always_available_update, { action: path('netgen.better_ibexa_admin_ui.content.update_always_available') }) }}
-    {{ form_row(form_always_available_update.content_info) }}
+{{ form_start(form_always_available_update, { action: path('netgen.better_ibexa_admin_ui.content.update_always_available', { id: content.id }) }) }}
     {{ form_row(form_always_available_update.always_available, { label_attr: { hidden: true } }) }}
-    {{ form_row(form_always_available_update.set) }}
 {{ form_end(form_always_available_update) }}

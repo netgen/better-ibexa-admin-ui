@@ -17,9 +17,9 @@ final class FormFactory
     ) {
     }
 
-    public function createContentAlwaysAvailableUpdateForm(?ContentInfo $contentInfo = null): FormInterface
+    public function createContentAlwaysAvailableUpdateForm(?bool $alwaysAvailable = null): FormInterface
     {
-        $data = $contentInfo ? new ContentUpdateAlwaysAvailableData($contentInfo) : null;
+        $data = $alwaysAvailable ? new ContentUpdateAlwaysAvailableData($alwaysAvailable) : null;
 
         return $this->formFactory->createNamed(
             'ng-content-update-always-available',
