@@ -8,6 +8,6 @@ services:
             - '@Ibexa\Bundle\Core\Routing\UrlAliasRouter'
             - '@event_dispatcher'
             - '@form.factory'
-            - '@Ibexa\Core\Repository\Permission\PermissionResolver'
             - '@ibexa.api.service.language'
+            - '@Ibexa\Core\Repository\Permission\PermissionResolver'
             - '@Netgen\Bundle\BetterIbexaAdminUIBundle\Form\FormFactory'
