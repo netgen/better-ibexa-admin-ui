@@ -2,11 +2,13 @@
 
 {% block field %}
     <div class="ibexa-content-field">
-        <div class="ibexa-content-field__name"
-             title="{{ 'content.content_view_fields.title.identifier'|trans|desc('identifier') }}={{ field_definition.identifier }},
-             {{ 'content.content_view_fields.title.field_id'|trans|desc('field ID') }}={{ content.field(field_definition.identifier).id }},
-             {{ 'content.content_view_fields.title.type'|trans|desc('type') }}={{ field_definition.fieldTypeIdentifier }},
-             {{ 'content.content_view_fields.title.field_definition_id'|trans|desc('field definition ID') }}={{ field_definition.id }}">{{ field_definition.name }}
+        <div class="ibexa-content-field__name">
+            <span title="{{ 'content.content_view_fields.title.identifier'|trans|desc('identifier') }}={{ field_definition.identifier }},
+                  {{ 'content.content_view_fields.title.field_id'|trans|desc('field ID') }}={{ content.field(field_definition.identifier).id }},
+                  {{ 'content.content_view_fields.title.type'|trans|desc('type') }}={{ field_definition.fieldTypeIdentifier }},
+                  {{ 'content.content_view_fields.title.field_definition_id'|trans|desc('field definition ID') }}={{ field_definition.id }}">
+                {{ field_definition.name }}
+            </span>
         </div>
         <div class="ibexa-content-field__value">
             {% if ibexa_field_is_empty(content, field_definition.identifier) %}
