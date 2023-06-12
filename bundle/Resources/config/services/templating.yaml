@@ -2,7 +2,7 @@ services:
     netgen.better_ibexa_admin_ui.twig.runtime.better_ibexa_admin_ui:
         class: Netgen\Bundle\BetterIbexaAdminUIBundle\Templating\Twig\BetterIbexaAdminUIRuntime
         arguments:
-            - "@netgen.ibexa_site_api.filter_service"
+            - "@ibexa.api.service.content"
         tags:
             - { name: twig.runtime }
 
