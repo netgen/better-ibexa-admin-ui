@@ -11,11 +11,11 @@ use Twig\Extension\RuntimeExtensionInterface;
 
 final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
 {
-    private ContentService $filterService;
+    private ContentService $contentService;
 
-    public function __construct(ContentService $filterService)
+    public function __construct(ContentService $contentService)
     {
-        $this->filterService = $filterService;
+        $this->contentService = $contentService;
     }
 
     public function countContentByContentType(string $contentTypeIdentifier): int
@@ -24,6 +24,6 @@ final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
         $query->withCriterion(new Criterion\ContentTypeIdentifier($contentTypeIdentifier));
         $query->withLimit(0);
 
-        return $this->filterService->find($query)->getTotalCount() ?? 0;
+        return $this->contentService->find($query)->getTotalCount() ?? 0;
     }
 }
