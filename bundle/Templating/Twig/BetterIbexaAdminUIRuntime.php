@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\BetterIbexaAdminUIBundle\Templating\Twig;
 
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Netgen\IbexaSiteApi\API\FilterService;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Twig\Extension\RuntimeExtensionInterface;
 
 final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
 {
-    private FilterService $filterService;
+    private ContentService $filterService;
 
-    public function __construct(FilterService $filterService)
+    public function __construct(ContentService $filterService)
     {
         $this->filterService = $filterService;
     }
 
     public function countContentByContentType(string $contentTypeIdentifier): int
     {
-        $query = new Query();
-        $query->filter = new Criterion\ContentTypeIdentifier($contentTypeIdentifier);
-        $query->limit = 0;
+        $query = new Filter();
+        $query->withCriterion(new Criterion\ContentTypeIdentifier($contentTypeIdentifier));
+        $query->withLimit(0);
 
-        return $this->filterService->filterContent($query)->totalCount ?? 0;
+        return $this->filterService->find($query)->getTotalCount() ?? 0;
     }
 }
