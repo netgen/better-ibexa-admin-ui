@@ -20,10 +20,10 @@ final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
 
     public function countContentByContentType(string $contentTypeIdentifier): int
     {
-        $query = new Filter();
-        $query->withCriterion(new Criterion\ContentTypeIdentifier($contentTypeIdentifier));
-        $query->withLimit(1);
+        $filter = new Filter();
+        $filter->withCriterion(new Criterion\ContentTypeIdentifier($contentTypeIdentifier));
+        $filter->withLimit(1);
 
-        return $this->contentService->find($query)->getTotalCount() ?? 0;
+        return $this->contentService->find($filter)->getTotalCount() ?? 0;
     }
 }
