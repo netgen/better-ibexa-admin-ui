@@ -13,6 +13,10 @@
     "require": {
         "ibexa/admin-ui": "^4.4"
     },
+    "require-dev": {
+        "netgen/ibexa-site-api": "^5.4",
+        "ibexa/graphql": "^4.5"
+    },
     "autoload": {
         "psr-4": {
             "Netgen\\Bundle\\BetterIbexaAdminUIBundle\\": "bundle"
