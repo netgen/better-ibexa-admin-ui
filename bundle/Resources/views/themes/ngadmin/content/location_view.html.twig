@@ -1,5 +1,7 @@
 {% extends '@admin/content/location_view.html.twig' %}
+
 {% block title %}{{ content.name }}{% endblock %}
+
 {% block header %}
     {% set hide_bookmarks = hide_bookmarks|default(false) %}
     {% embed '@ibexadesign/ui/page_title.html.twig' with {
@@ -31,6 +33,7 @@
             </span>
         {% endblock %}
     {% endembed %}
+
     {% if location.hidden or location.invisible %}
         <div class="pb-4">
             {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
