@@ -1,7 +1,5 @@
 {% extends '@admin/content/location_view.html.twig' %}
-
 {% block title %}{{ content.name }}{% endblock %}
-
 {% block header %}
     {% set hide_bookmarks = hide_bookmarks|default(false) %}
     {% embed '@ibexadesign/ui/page_title.html.twig' with {
@@ -26,10 +24,13 @@
                     </svg>
                 </a>
                 <a href="{{ url }}">{{ content_type.name }}</a>
+                {% set locale_conversion_map = ibexa.configResolver.getParameter('locale.conversion_map', 'ngsite') %}
+                {% for language in content.versionInfo.languages %}
+                    &nbsp {{ locale_conversion_map[language.languageCode]|split('_')|last|nglayouts_country_flag|raw }}
+                {% endfor %}
             </span>
         {% endblock %}
     {% endembed %}
-
     {% if location.hidden or location.invisible %}
         <div class="pb-4">
             {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
