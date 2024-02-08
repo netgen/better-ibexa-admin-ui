@@ -32,7 +32,7 @@
                     {% set array = array|merge([language.languageCode|ngadmin_language.name]) %}
                 {% endfor %}
             </span>
-            {{array|join(', ') }}
+            {{ array|join(', ') }}
         {% endblock %}
     {% endembed %}
 
