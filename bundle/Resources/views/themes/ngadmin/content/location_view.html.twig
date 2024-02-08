@@ -31,8 +31,8 @@
                 {% for language in content.versionInfo.languages %}
                     {% set array = array|merge([language.languageCode|ngadmin_language.name]) %}
                 {% endfor %}
-                &nbsp {{array|join(', ') }}
             </span>
+            {{array|join(', ') }}
         {% endblock %}
     {% endembed %}
 
