@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Netgen\Bundle\BetterIbexaAdminUIBundle\Templating\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 final class BetterIbexaAdminUIExtension extends AbstractExtension
