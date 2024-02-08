@@ -27,12 +27,12 @@
                 </a>
                 <a href="{{ url }}">{{ content_type.name }}</a>
 
-                {% set array = [] %}
+                {% set language_names = [] %}
                 {% for language in content.versionInfo.languages %}
-                    {% set array = array|merge([language.name]) %}
+                    {% set language_names = language_names|merge([language.name]) %}
                 {% endfor %}
             </span>
-            {{ array|join(', ') }}
+            {{ language_names|join(', ') }}
         {% endblock %}
     {% endembed %}
 
