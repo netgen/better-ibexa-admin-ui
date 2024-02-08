@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Netgen\Bundle\BetterIbexaAdminUIBundle\Templating\Twig;
 
 use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\LanguageService;
-use Ibexa\Contracts\Core\Repository\Values\Content\Language;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Twig\Extension\RuntimeExtensionInterface;
