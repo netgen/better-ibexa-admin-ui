@@ -29,7 +29,7 @@
 
                 {% set array = [] %}
                 {% for language in content.versionInfo.languages %}
-                    {% set array = array|merge([language.languageCode|ngadmin_language.name]) %}
+                    {% set array = array|merge([language.name]) %}
                 {% endfor %}
             </span>
             {{ array|join(', ') }}
