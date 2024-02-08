@@ -7,6 +7,7 @@ namespace Netgen\Bundle\BetterIbexaAdminUIBundle\Templating\Twig;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\LanguageService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Language;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Twig\Extension\RuntimeExtensionInterface;
@@ -31,12 +32,9 @@ final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
         return $this->contentService->find($filter)->getTotalCount() ?? 0;
     }
 
-    /**
-     * @throws NotFoundException
-     */
-    public function getLanguageName(string $languageCode): string
+    public function getLanguage(string $languageCode): Language
     {
 
-        return $this->languageService->loadLanguage($languageCode)->name;
+        return $this->languageService->loadLanguage($languageCode);
     }
 }

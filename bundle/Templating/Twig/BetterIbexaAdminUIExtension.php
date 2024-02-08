@@ -24,8 +24,8 @@ final class BetterIbexaAdminUIExtension extends AbstractExtension
     {
         return [
             new TwigFilter(
-                'show_language_name',
-                [BetterIbexaAdminUIRuntime::class, 'getLanguageName'],
+                'ngadmin_language',
+                [BetterIbexaAdminUIRuntime::class, 'getLanguage'],
             ),
         ];
     }
