@@ -26,12 +26,11 @@
                     </svg>
                 </a>
                 <a href="{{ url }}">{{ content_type.name }}</a>
-
-                {% set language_names = [] %}
-                {% for language in content.versionInfo.languages %}
-                    {% set language_names = language_names|merge([language.name]) %}
-                {% endfor %}
             </span>
+            {% set language_names = [] %}
+            {% for language in content.versionInfo.languages %}
+                {% set language_names = language_names|merge([language.name]) %}
+            {% endfor %}
             {{ language_names|join(', ') }}
         {% endblock %}
     {% endembed %}
