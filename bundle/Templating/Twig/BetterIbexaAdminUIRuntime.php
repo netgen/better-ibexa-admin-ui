@@ -31,10 +31,4 @@ final class BetterIbexaAdminUIRuntime implements RuntimeExtensionInterface
 
         return $this->contentService->find($filter)->getTotalCount() ?? 0;
     }
-
-    public function getLanguage(string $languageCode): Language
-    {
-
-        return $this->languageService->loadLanguage($languageCode);
-    }
 }
