@@ -1,3 +1,6 @@
+This repository is replaced by https://github.com/netgen/ibexa-admin-ui-extra
+-----------------------------------------------------------------------------
+
 Netgen Better Ibexa Admin UI
 ============================
 
